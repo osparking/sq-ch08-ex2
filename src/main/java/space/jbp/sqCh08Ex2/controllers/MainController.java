@@ -11,6 +11,7 @@ public class MainController {
 	public String home(Model page, 
 			@RequestParam(required = false) String color, 
 			@RequestParam(required = false) String username) {
+		username = (username == null ? "(username)" : username);  
 		page.addAttribute("username", username);
 		color = (color == null ? "brown" : color);  
 		page.addAttribute("color", color);
