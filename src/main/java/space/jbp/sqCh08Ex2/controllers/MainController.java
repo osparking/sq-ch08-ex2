@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class MainController {
 	@GetMapping("/home")
 	public String home(Model page, 
-			@RequestParam String color, @RequestParam String username) {
+			@RequestParam(required = false) String color, 
+			@RequestParam(required = false) String username) {
 		page.addAttribute("username", username);
+		color = (color == null ? "brown" : color);  
 		page.addAttribute("color", color);
 		return "home.html";
 	}
