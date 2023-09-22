@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class MainController {
 	@GetMapping("/home")
-	public String home(Model page, @RequestParam String color) {
-		page.addAttribute("username", "jbpark03");
+	public String home(Model page, 
+			@RequestParam String color, @RequestParam String username) {
+		page.addAttribute("username", username);
 		page.addAttribute("color", color);
 		return "home.html";
 	}
